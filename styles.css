@@ -1,0 +1,366 @@
+/* Estilos adicionales para mejorar la responsividad y efectos visuales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Animaciones suaves para las imágenes flotantes */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-10deg); }
+    50% { transform: translateY(-10px) rotate(-10deg); }
+}
+
+@keyframes float-reverse {
+    0%, 100% { transform: translateY(0px) rotate(25deg); }
+    50% { transform: translateY(-15px) rotate(25deg); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+    animation: float-reverse 8s ease-in-out infinite;
+}
+
+/* Efecto de hover para el botón */
+.btn-register:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Animación de papel picado */
+@keyframes papel-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(2deg); }
+    50% { transform: translateY(-10px) rotate(0deg); }
+    75% { transform: translateY(-5px) rotate(-2deg); }
+}
+
+/* Animación para calaveras */
+@keyframes skull-glow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(255, 140, 0, 0.3)); }
+    50% { filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.6)); }
+}
+
+/* Animación intensa para elementos del Día de Muertos */
+@keyframes intense-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.4))
+                drop-shadow(0 0 15px rgba(249, 115, 22, 0.2))
+                drop-shadow(0 0 25px rgba(234, 179, 8, 0.1));
+    }
+    50% {
+        filter: drop-shadow(0 0 10px rgba(249, 115, 22, 0.8))
+                drop-shadow(0 0 25px rgba(249, 115, 22, 0.5))
+                drop-shadow(0 0 40px rgba(234, 179, 8, 0.3));
+    }
+}
+
+/* Mejora del gradiente de fondo */
+.bg-gradient-overlay {
+    background: linear-gradient(135deg,
+        rgba(88, 28, 135, 0.9) 0%,
+        rgba(249, 115, 22, 0.8) 50%,
+        rgba(234, 179, 8, 0.9) 100%);
+}
+
+/* Efectos para elementos del Día de Muertos */
+.day-of-dead-element {
+    filter: saturate(1.2) contrast(1.1);
+    transition: all 0.4s ease;
+}
+
+.day-of-dead-element:hover {
+    transform: scale(1.05);
+    filter: saturate(1.4) contrast(1.3) drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    .form-container {
+        padding: 1rem;
+    }
+
+    .form-title {
+        font-size: 2.5rem;
+    }
+
+    .input-field {
+        height: 3rem;
+        font-size: 1rem;
+    }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .floating-images {
+        transform: scale(0.8);
+    }
+}
+
+/* Efectos de transición suaves */
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+/* Papel picado */
+.papel-picado-wrap img {
+    height: 90px;
+    object-fit: cover;
+    opacity: 0.95;
+    filter: saturate(1.1) drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+}
+
+/* Velas en las esquinas con efecto de parpadeo */
+.candle {
+    position: absolute;
+    bottom: 8px;
+    width: 84px;
+    height: auto;
+    z-index: 30;
+    opacity: 0.95;
+    transform-origin: center bottom;
+    animation: candle-flicker 2.6s infinite;
+}
+.candle-left { left: 8px; }
+.candle-right { right: 8px; }
+
+@keyframes candle-flicker {
+    0% { transform: translateY(0) scale(1); filter: drop-shadow(0 6px 12px rgba(255,140,0,0.12)) brightness(1); }
+    20% { transform: translateY(-1px) scale(1.01); filter: drop-shadow(0 8px 18px rgba(255,140,0,0.18)) brightness(1.1); }
+    40% { transform: translateY(-2px) scale(1.02); filter: drop-shadow(0 10px 22px rgba(255,140,0,0.25)) brightness(1.2); }
+    60% { transform: translateY(0) scale(1); filter: drop-shadow(0 6px 12px rgba(255,140,0,0.12)) brightness(1); }
+    80% { transform: translateY(-1px) scale(1.01); filter: drop-shadow(0 8px 16px rgba(255,140,0,0.15)) brightness(1.05); }
+    100% { transform: translateY(0) scale(1); filter: drop-shadow(0 6px 12px rgba(255,140,0,0.12)) brightness(1); }
+}
+
+/* Personajes decorativos */
+.character-left, .character-right {
+    width: 180px;
+    opacity: 0.95;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.6));
+    transform: translateY(0);
+    transition: transform 0.6s ease;
+}
+.character-left:hover, .character-right:hover { transform: translateY(-6px); }
+
+/* Ajustes responsivos para velas y personajes */
+@media (max-width: 767px) {
+    .candle { width: 56px; }
+    .character-left, .character-right { display: none; }
+    .papel-picado-wrap img { height: 60px; }
+}
+
+/* Clases para elementos específicos del Día de Muertos */
+.skull-float {
+    animation: skull-glow 3s ease-in-out infinite;
+}
+
+.papel-float {
+    animation: papel-float 4s ease-in-out infinite;
+}
+
+/* Efectos de iluminación para elementos interactivos */
+.candle-glow {
+    filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.5));
+}
+
+.candle-glow:hover {
+    filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.8));
+}
+
+/* Mejora del botón de registro */
+.btn-register {
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-register:hover {
+    box-shadow: 0 12px 35px rgba(249, 115, 22, 0.6);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Efectos para calaveras de azúcar */
+.sugar-skull {
+    filter: saturate(1.3) contrast(1.2) brightness(1.1);
+    transition: all 0.3s ease;
+}
+
+/* Efectos de iluminación ambiental */
+@keyframes ambient-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(249, 115, 22, 0.3),
+                    0 0 40px rgba(139, 92, 246, 0.2),
+                    0 0 60px rgba(234, 179, 8, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(249, 115, 22, 0.5),
+                    0 0 60px rgba(139, 92, 246, 0.3),
+                    0 0 90px rgba(234, 179, 8, 0.2);
+    }
+}
+
+/* Efectos mejorados para elementos del Día de Muertos */
+.sugar-skull {
+    filter: saturate(1.4) contrast(1.3) brightness(1.2) hue-rotate(15deg);
+    transition: all 0.4s ease;
+    animation: intense-glow 4s ease-in-out infinite;
+}
+
+.sugar-skull:hover {
+    filter: saturate(1.6) contrast(1.5) brightness(1.3) hue-rotate(25deg)
+            drop-shadow(0 8px 20px rgba(255, 140, 0, 0.6))
+            drop-shadow(0 12px 30px rgba(234, 179, 8, 0.4));
+    transform: scale(1.1) rotate(8deg);
+}
+
+/* Efectos mejorados para flores de cempasúchil */
+.marigold-glow {
+    filter: saturate(1.5) contrast(1.4) brightness(1.3) hue-rotate(-10deg)
+            drop-shadow(0 0 15px rgba(234, 179, 8, 0.6));
+    animation: intense-glow 3s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+}
+
+.marigold-glow:hover {
+    filter: saturate(1.7) contrast(1.6) brightness(1.4) hue-rotate(-5deg)
+            drop-shadow(0 0 25px rgba(234, 179, 8, 0.8))
+            drop-shadow(0 0 40px rgba(255, 140, 0, 0.5));
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(234, 179, 8, 0.5);
+}
+
+/* Gradiente radial mejorado para el Día de Muertos */
+.bg-gradient-radial {
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(88, 28, 135, 0.3) 40%, rgba(88, 28, 135, 0.6) 100%);
+}
+
+/* Patrón de fondo inspirado en textiles mexicanos */
+.bg-mexican-pattern {
+    background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(249, 115, 22, 0.1) 2px, rgba(249, 115, 22, 0.1) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(139, 92, 246, 0.1) 2px, rgba(139, 92, 246, 0.1) 4px);
+    background-size: 20px 20px;
+}
+
+/* Efecto de luz de velas en el fondo */
+@keyframes candle-light {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 140, 0, 0.2),
+                    0 0 40px rgba(255, 140, 0, 0.1),
+                    0 0 60px rgba(255, 140, 0, 0.05);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 140, 0, 0.4),
+                    0 0 60px rgba(255, 140, 0, 0.2),
+                    0 0 90px rgba(255, 140, 0, 0.1);
+    }
+}
+
+/* Partículas flotantes inspiradas en pétalos de cempasúchil */
+@keyframes floating-petals {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+.floating-petal {
+    animation: floating-petals 8s linear infinite;
+    position: absolute;
+    width: 8px;
+    height: 12px;
+    background: linear-gradient(45deg, #f97316, #eab308);
+    border-radius: 50% 10px;
+}
+
+/* Efecto de humo/incienso */
+@keyframes incense-smoke {
+    0% { transform: translateY(0) scale(1); opacity: 0.4; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.6; }
+    100% { transform: translateY(-40px) scale(0.8); opacity: 0.2; }
+}
+
+.smoke-effect {
+    animation: incense-smoke 4s ease-in-out infinite;
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background: radial-gradient(ellipse, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* Patrón de calavera sutil en el fondo */
+/* Efecto de respiración para elementos espirituales */
+@keyframes spiritual-breathing {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    50% { transform: scale(1.05) rotate(2deg); opacity: 0.8; }
+}
+
+.spiritual-element {
+    animation: spiritual-breathing 6s ease-in-out infinite;
+}
+
+/* Efecto de pulso para luces sagradas */
+@keyframes sacred-pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(234, 179, 8, 0.3),
+                    0 0 20px rgba(249, 115, 22, 0.2),
+                    0 0 30px rgba(139, 92, 246, 0.1);
+        filter: brightness(1) saturate(1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(234, 179, 8, 0.6),
+                    0 0 40px rgba(249, 115, 22, 0.4),
+                    0 0 60px rgba(139, 92, 246, 0.3);
+        filter: brightness(1.2) saturate(1.3);
+    }
+}
+
+.sacred-light {
+    animation: sacred-pulse 4s ease-in-out infinite;
+}
+
+/* Efecto de ondulación para elementos místicos */
+@keyframes mystical-ripple {
+    0% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.3); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Patrón de calavera sutil en el fondo */
+.bg-skull-pattern {
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px, 80px 80px, 50px 50px, 70px 70px;
+}
+
+/* Texto con efecto de resplandor */
+.glow-text {
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.5),
+                 0 0 20px rgba(249, 115, 22, 0.3),
+                 0 0 30px rgba(249, 115, 22, 0.2);
+    animation: text-pulse 3s ease-in-out infinite;
+}
+
+@keyframes text-pulse {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(249, 115, 22, 0.5),
+                     0 0 20px rgba(249, 115, 22, 0.3),
+                     0 0 30px rgba(249, 115, 22, 0.2);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(249, 115, 22, 0.8),
+                     0 0 30px rgba(249, 115, 22, 0.5),
+                     0 0 45px rgba(249, 115, 22, 0.3);
+    }
+}
